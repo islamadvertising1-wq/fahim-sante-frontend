@@ -210,3 +210,49 @@ function setLanguage(lang) {
     // Pour l'instant, on garde en français
     console.log('Langue changée à:', lang);
 }
+// Ajoute cette fonction après la fonction setLanguage existante
+function setLanguage(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    
+    // Gérer la direction du texte
+    const htmlTag = document.getElementById('htmlTag');
+    if (lang === 'ar') {
+        htmlTag.dir = 'rtl';
+        htmlTag.lang = 'ar';
+        document.body.classList.add('rtl');
+    } else {
+        htmlTag.dir = 'ltr';
+        htmlTag.lang = 'fr';
+        document.body.classList.remove('rtl');
+    }
+    
+    // Recharger les médecins avec la langue appropriée
+    // (tu devras adapter ton backend pour supporter l'arabe)
+    console.log('Langue changée à:', lang);
+}
+// Ajoute ceci dans la fonction setupEventListeners()
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', handleContactSubmit);
+}
+
+// Fonction pour gérer le formulaire de contact
+function handleContactSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    const contactData = {
+        name: formData.get('contactName'),
+        email: formData.get('contactEmail'),
+        phone: formData.get('contactPhone'),
+        message: formData.get('contactMessage')
+    };
+    
+    // Pour l'instant, on affiche dans la console
+    // Plus tard, tu enverras vers ton backend
+    console.log('Message de contact:', contactData);
+    alert('Merci pour votre message ! Nous vous répondrons bientôt.');
+    contactForm.reset();
+}

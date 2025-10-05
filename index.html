@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr" id="htmlTag"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,7 +150,59 @@
             </form>
         </div>
     </div>
-
+<!-- Contact Section -->
+<section class="contact-section" id="contactSection">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nous Contacter</h2>
+            <p>Une question ? Contactez-nous !</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i data-feather="phone"></i>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+213 555 123 456</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i data-feather="mail"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>contact@fahimsante.dz</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i data-feather="map-pin"></i>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Alger, Algérie</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="contactName" placeholder="Votre nom *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="contactEmail" placeholder="Votre email *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="contactPhone" placeholder="Votre téléphone">
+                </div>
+                <div class="form-group">
+                    <textarea id="contactMessage" placeholder="Votre message *" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

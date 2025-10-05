@@ -466,3 +466,85 @@ body {
     margin-bottom: 1rem;
     color: var(--light-gray);
 }
+/* Styles RTL pour l'arabe */
+.rtl .logo {
+    flex-direction: row-reverse;
+}
+
+.rtl .nav {
+    flex-direction: row-reverse;
+}
+
+.rtl .search-form {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .doctor-card {
+    text-align: right;
+}
+
+.rtl .footer-content {
+    flex-direction: row-reverse;
+}
+/* Contact Section */
+.contact-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-item i {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Responsive Contact */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
