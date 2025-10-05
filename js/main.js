@@ -212,6 +212,7 @@ function setLanguage(lang) {
 }
 // Ajoute cette fonction après la fonction setLanguage existante
 function setLanguage(lang) {
+    // Mettre à jour les boutons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
@@ -222,11 +223,39 @@ function setLanguage(lang) {
         htmlTag.dir = 'rtl';
         htmlTag.lang = 'ar';
         document.body.classList.add('rtl');
+        
+        // Traductions en arabe
+        document.querySelector('.hero h1').textContent = 'منصتكم الطبية في الجزائر';
+        document.querySelector('.hero p').textContent = 'ابحثوا واحجزوا موعداً مع طبيب قريب منكم';
+        document.querySelector('[for="search"]').textContent = 'بحث';
+        document.querySelector('[for="specialty"]').textContent = 'التخصص';
+        document.querySelector('[for="city"]').textContent = 'المدينة';
+        document.querySelector('.search-btn').innerHTML = '<i data-feather="search"></i> بحث';
+        document.querySelectorAll('.book-btn').forEach(btn => {
+            btn.textContent = 'حجز موعد';
+        });
+        document.querySelector('.section-header h2').textContent = 'الأطباء المتاحون';
     } else {
         htmlTag.dir = 'ltr';
         htmlTag.lang = 'fr';
         document.body.classList.remove('rtl');
+        
+        // Textes en français
+        document.querySelector('.hero h1').textContent = 'Votre plateforme médicale en Algérie';
+        document.querySelector('.hero p').textContent = 'Trouvez et réservez un rendez-vous avec un médecin près de chez vous';
+        document.querySelector('[for="search"]').textContent = 'Recherche';
+        document.querySelector('[for="specialty"]').textContent = 'Spécialité';
+        document.querySelector('[for="city"]').textContent = 'Ville';
+        document.querySelector('.search-btn').innerHTML = '<i data-feather="search"></i> Rechercher';
+        document.querySelectorAll('.book-btn').forEach(btn => {
+            btn.textContent = 'Réserver un rendez-vous';
+        });
+        document.querySelector('.section-header h2').textContent = 'Médecins disponibles';
     }
+    
+    // Recharger les icônes Feather
+    feather.replace();
+}
     
     // Recharger les médecins avec la langue appropriée
     // (tu devras adapter ton backend pour supporter l'arabe)
