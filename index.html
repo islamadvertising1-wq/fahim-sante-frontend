@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahim Santé - Doctolib Algérie</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="heart-icon">❤</div>
+                <h1>Fahim Santé</h1>
+            </div>
+            <nav class="nav">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ar">AR</button>
+                <button class="btn btn-primary" id="loginBtn">Se Connecter</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Votre plateforme médicale en Algérie</h1>
+                <p>Trouvez et réservez un rendez-vous avec un médecin près de chez vous</p>
+                
+                <!-- Search Form -->
+                <div class="search-container">
+                    <div class="search-form">
+                        <div class="search-group">
+                            <label for="search">Recherche</label>
+                            <div class="input-with-icon">
+                                <i data-feather="search"></i>
+                                <input type="text" id="search" placeholder="Nom du médecin, spécialité...">
+                            </div>
+                        </div>
+                        
+                        <div class="search-group">
+                            <label for="specialty">Spécialité</label>
+                            <div class="input-with-icon">
+                                <i data-feather="activity"></i>
+                                <select id="specialty">
+                                    <option value="">Toutes les spécialités</option>
+                                    <option value="Cardiologue">Cardiologue</option>
+                                    <option value="Pédiatre">Pédiatre</option>
+                                    <option value="Dermatologue">Dermatologue</option>
+                                    <option value="Gynécologue">Gynécologue</option>
+                                    <option value="Ophtalmologue">Ophtalmologue</option>
+                                    <option value="Dentiste">Dentiste</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="search-group">
+                            <label for="city">Ville</label>
+                            <div class="input-with-icon">
+                                <i data-feather="map-pin"></i>
+                                <select id="city">
+                                    <option value="">Toutes les villes</option>
+                                    <option value="Alger">Alger</option>
+                                    <option value="Oran">Oran</option>
+                                    <option value="Constantine">Constantine</option>
+                                    <option value="Annaba">Annaba</option>
+                                    <option value="Blida">Blida</option>
+                                    <option value="Sétif">Sétif</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary search-btn" id="searchBtn">
+                            <i data-feather="search"></i>
+                            Rechercher
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Médecins disponibles</h2>
+                <p id="resultsCount">Chargement des médecins...</p>
+            </div>
+            
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- Les médecins seront chargés ici -->
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-header">
+                <h3>Réserver un rendez-vous</h3>
+                <p id="doctorNameModal"></p>
+            </div>
+            
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="patientName">Nom complet *</label>
+                    <input type="text" id="patientName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="patientPhone">Téléphone *</label>
+                    <input type="tel" id="patientPhone" required placeholder="05 00 00 00 00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="appointmentDate">Date du rendez-vous *</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appointmentTime">Heure du rendez-vous *</label>
+                    <select id="appointmentTime" required>
+                        <option value="">Choisir une heure</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    Confirmer le rendez-vous
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="heart-icon">❤</div>
+                    <h3>Fahim Santé</h3>
+                    <p>Votre plateforme médicale de confiance en Algérie</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <a href="#">À propos</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fahim Santé. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
