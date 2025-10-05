@@ -1,5 +1,6 @@
 // Configuration de l'API
 const API_BASE_URL = 'https://fahim-sante-backend.onrender.com/api';
+
 // Fonctions d'API
 const api = {
     // Obtenir tous les médecins
